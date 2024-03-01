@@ -13,7 +13,7 @@ authors = ["Robert Fuchs <RobertFuchs97@gmail.com>", "Oskar Nizioł <oskarniziol
 edition = "2018"
 
 [lib]
-name = "airos-wmctrl"
+name = "airos_wmctrl"
 path = "src/lib.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
