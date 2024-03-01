@@ -15,6 +15,7 @@ pub struct Window {
     client_machine: String,
     title: String,
     transformation: Transformation,
+    class: String
 }
 
 impl Window {
@@ -24,6 +25,7 @@ impl Window {
         client_machine: String,
         title: String,
         transformation: Transformation,
+        class: String
     ) -> Window {
         Window {
             id,
@@ -31,6 +33,7 @@ impl Window {
             client_machine,
             title,
             transformation,
+            class
         }
     }
 
@@ -152,5 +155,9 @@ impl Window {
     /// Get the title immutably
     pub fn title(&self) -> &String {
         &self.title
+    }
+
+    pub fn class(&self) -> &String {
+        &self.class
     }
 }
