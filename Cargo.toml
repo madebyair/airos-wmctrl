@@ -1,5 +1,5 @@
 [package]
-name = "airos-wmctrl"
+name = "airos_wmctrl"
 description = "Fork of rust-wmctrl, with class names support"
 repository = "https://github.com/madebyair/airos-wmctrl"
 
