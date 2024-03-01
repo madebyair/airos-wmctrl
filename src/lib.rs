@@ -51,7 +51,7 @@ pub fn help() -> Output {
 /// This will lead to inconsistencies between the two Vectors and most likely to incorrect behavior of your code.
 /// It is advised to get a `Vec<Window>` once at the beginning of the program and operate on it.
 pub fn get_windows() -> Vec<Window> {
-    let output_table = String::from_utf8(wmctrl("-l -G").stdout).unwrap();
+    let output_table = String::from_utf8(wmctrl("-lx -G").stdout).unwrap();
 
     let mut windows = Vec::new();
     for row in output_table.lines() {
@@ -90,14 +90,15 @@ fn parse_row(row: &str) -> Window {
 
     let t = Transformation::new(x, y, w, h);
 
-    let (id, desktop, client_machine) = (
+    let (id, desktop, class, client_machine) = (
         columns[0].to_owned(),
         columns[1].to_owned(),
         columns[6].to_owned(),
+        columns[7].to_owned(),
     );
 
     let mut title = String::from("");
-    let title_substrings: Vec<&str> = columns[7..].to_vec();
+    let title_substrings: Vec<&str> = columns[8..].to_vec();
 
     title_substrings
         .into_iter()
@@ -105,7 +106,7 @@ fn parse_row(row: &str) -> Window {
     // Remove last whitespace
     title.pop();
 
-    Window::new(id, desktop, client_machine, title, t)
+    Window::new(id, desktop, client_machine, title, t, class)
 }
 
 #[cfg(test)]
