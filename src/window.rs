@@ -160,4 +160,8 @@ impl Window {
     pub fn class(&self) -> &String {
         &self.class
     }
+
+    pub fn id(&self) -> &String {
+        &self.id
+    }
 }
